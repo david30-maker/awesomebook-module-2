@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AwesomebookES6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="awesome">Awesome Books</div>
+      <ul class="menu-list">
+        <li id="listlink"><a href="#list">List</a></li>
+        <li id="addlink"><a href="#bookadd">Add</a></li>
+        <li id="contactlink"><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="date-time">
+      <span class="current-time"></span>
+    </div>
+    <section id="list">
+      <h1>All Awesome Books</h1>
+      <table>
+        <tbody id="table"></tbody>
+      </table>
+    </section>
+
+    <section id="bookadd">
+      <h2>Add a new Book</h2>
+      <form id="form">
+        <p id="show-error"></p>
+        <input id="title" type="text" placeholder="Title" required />
+        <input id="author" type="name" placeholder="Author" required />
+        <button type="submit" id="add-book">Add book</button>
+      </form>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Do you have any questions do reach out to us!</p>
+      <ul>
+        <li>mail: davidokpah396@gmail.com</li>
+        <li>telephone: +2347042554586</li>
+        <li>address: no.1 lane C, Sun city estate, Abuja</li>
+      </ul>
+    </section>
+
+    <footer>Copyrights</footer>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
