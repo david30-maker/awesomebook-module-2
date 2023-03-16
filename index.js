@@ -1,4 +1,6 @@
-import Book from './modules/book.js';
+/* eslint-disable */
+
+import Book from './modules/showFun.js';
 import { DateTime } from './modules/luxon.js';
 
 const btn = document.getElementById('add-book');
@@ -6,17 +8,17 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const formBook = document.getElementById('form');
 const error = document.getElementById('show-error');
-const displayBook = document.getElementById('table');
+const displayBookList = document.getElementById('table');
+const showCurrTime = document.querySelector('.current-time');
 
 const listUp = document.getElementById('list');
 const newBook = document.getElementById('bookadd');
 const contactUp = document.getElementById('contact');
 
 const listLink = document.getElementById('listlink');
-const addNewLink = document.getElementById('bookadd');
+const addNewLink = document.getElementById('addlink');
 const contactLink = document.getElementById('contactlink');
 
-// Instantiate book class
 const books = new Book();
 let bookArray = books.getBook();
 
@@ -45,7 +47,6 @@ const comeUp = () => {
 
 comeUp();
 
-// add book from form
 btn.addEventListener('click', (e) => {
   e.preventDefault();
   if (title.value.length === '' || author.value.length === '') {
@@ -58,19 +59,18 @@ btn.addEventListener('click', (e) => {
     (book) => book.author === author.value,
   );
   if (bookCheck && authorCheck) {
-    error.innerText = 'This book already exists!!';
+    error.innerText = 'This book is already enlisted';
   } else {
     error.innerHTML = '';
-    books.bookAd(author.value, bookTitle.value);
+    books.bookAdd(author.value, title.value);
     bookArray = books.getBook();
     hideItems();
     listUp.style.display = 'block';
     displayBooks();
   }
-  form.reset();
+  formBook.reset();
 });
 
-// Document listener for removing book
 document.addEventListener('click', (e) => {
   const deleteBtn = e.target.closest('.remove');
   if (deleteBtn) {
@@ -98,11 +98,12 @@ addNewLink.addEventListener('click', (e) => {
   newBook.style.display = 'block';
 });
 
-/*const time = document.querySelector('.time');
-const date = new Date();
-time.textContent = `${date.toDateString()}`;
+const showDateTime = () => {
+    const time = DateTime.now();
+    const dayTime = time.toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+  
+    showCurrTime.textContent = dayTime;
+  };
+  setInterval(showDateTime, 2000);
 
-setInterval(() => {
-  const date = DateTime.now().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
-  time.textContent = `${date}`;
-}, 1000);
+
