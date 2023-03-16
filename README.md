@@ -66,7 +66,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-- (https://github.com/david30-maker/awesomebook-module)
+- (git@github.com:david30-maker/awesomebook-module-2.git)
 - cd awesomebook-module
 
 ### Install
